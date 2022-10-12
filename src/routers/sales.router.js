@@ -1,5 +1,10 @@
-// const express = require('express');
+const express = require('express');
+const { salesController } = require('../controllers');
 
-// const router = express.Router();
+const router = express.Router();
 
-// module.exports = {};
+router.post('/', salesController.registerSale);
+
+router.get('/', salesController.listAllSales);
+
+module.exports = router;
