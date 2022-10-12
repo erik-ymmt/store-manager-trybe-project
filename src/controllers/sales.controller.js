@@ -6,7 +6,7 @@ const registerSale = async (req, res) => {
   res.status(201).json({ id, itemsSold: sale });
 };
 
-const listAllSales = async (req, res) => {
+const listAllSales = async (_req, res) => {
   const salesList = await salesService.listAllSales();
   res.status(200).json(salesList);
 };
