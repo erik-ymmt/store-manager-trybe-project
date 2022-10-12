@@ -11,10 +11,10 @@ const {
   productByIdMock,
 } = require("./mocks/product.service.mocks");
 
-describe.only("Product services tests", function () {
+describe("Product services tests", function () {
   afterEach(sinon.restore);
 
-  describe("productModel services tests", function () {
+  describe("productService unit tests", function () {
     it("Returns all products", async function () {
       sinon
         .stub(models.productsModel, "getAllProducts")
