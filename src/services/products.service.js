@@ -2,6 +2,7 @@ const models = require('../models');
 
 const listAllProducts = async () => {
   const allProducts = await models.productsModel.getAllProducts();
+  // console.log('allProducts: ', allProducts);
   return { error: null, products: allProducts, status: 200 };
 };
 

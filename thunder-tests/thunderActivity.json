@@ -61,10 +61,10 @@
     "containerId": "",
     "name": "http://localhost:3000/products/",
     "url": "http://localhost:3000/products/",
-    "method": "POST",
+    "method": "GET",
     "sortNum": 0,
     "created": "2022-10-12T00:22:40.734Z",
-    "modified": "2022-10-12T00:29:38.436Z",
+    "modified": "2022-10-12T00:46:17.592Z",
     "headers": [],
     "params": [],
     "body": {

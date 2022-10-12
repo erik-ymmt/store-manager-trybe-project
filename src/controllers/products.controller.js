@@ -2,7 +2,7 @@ const services = require('../services');
 
 const listProducts = async (_req, res) => {
   const list = await services.productService.listAllProducts();
-  console.log('list controller: ', list);
+  // console.log('list controller: ', list);
   res.status(list.status).json(list.products);
 };
 
