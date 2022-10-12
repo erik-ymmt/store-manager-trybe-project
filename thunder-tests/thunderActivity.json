@@ -22,7 +22,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-10-11T22:11:10.139Z",
-    "modified": "2022-10-11T22:12:19.568Z",
+    "modified": "2022-10-11T23:43:36.302Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -36,7 +36,21 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-10-11T22:12:45.408Z",
-    "modified": "2022-10-11T22:15:51.308Z",
+    "modified": "2022-10-11T23:43:00.249Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "87bb7090-091f-48e9-86c3-6f96cca55a8b",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/",
+    "url": "http://localhost:3000/products/",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-10-11T23:52:19.098Z",
+    "modified": "2022-10-11T23:59:08.833Z",
     "headers": [],
     "params": [],
     "tests": []

@@ -5,6 +5,7 @@ const getAllProducts = async () => {
   const [result] = await connection.execute(
     'SELECT * FROM StoreManager.products',
   );
+  // console.log('result model: ', result);
   return result;
 };
 
@@ -13,7 +14,6 @@ const getProductById = async (id) => {
     'SELECT * FROM StoreManager.products WHERE id=?',
     [id],
   );
-  console.log('result model: ', result);
   return result;
 };
 
