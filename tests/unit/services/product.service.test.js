@@ -71,15 +71,15 @@ describe("Product services tests", function () {
     });
   });
 
-  describe("updateProduct unit tests", function () {
-    it("Update product success", async function () {
-      sinon
-        .stub(models.productsModel, "updateProduct")
-        .resolves([updatedProductMock]);
-      const result = await updateProduct(1);
-      expect(result).to.be.a("object");
-      expect(result).to.be.deep.equal(updatedProductMock);
-    });
-  });
+  // describe("updateProduct unit tests", function () {
+  //   it("Update product success", async function () {
+  //     sinon
+  //       .stub(models.productsModel, "updateProduct")
+  //       .resolves([updatedProductMock]);
+  //     const result = await updateProduct(1);
+  //     expect(result).to.be.a("object");
+  //     expect(result).to.be.deep.equal(updatedProductMock);
+  //   });
+  // });
 
 });

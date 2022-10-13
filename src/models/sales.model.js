@@ -18,14 +18,15 @@ const insertSale = async (sales) => {
   console.log('sale from model after', sales); //
   const saleId = result.insertId;
 
-  sales.forEach(async (element) => {
-    console.log('>>>>> saleId', saleId); //
-    console.log('element', element); //
-    console.log('element.productId', element.productId); //
-    console.log('element.quantity', element.quantity); //
-
+  const salesQueries = sales.map(async (element) => {
+    // console.log('>>>>> saleId', saleId); //
+    // console.log('element', element); //
+    // console.log('element.productId', element.productId); //
+    // console.log('element.quantity', element.quantity); //
     await insertSalesProduct(element, saleId);
   });
+
+  await Promise.all(salesQueries);
 
   return saleId;
 };
