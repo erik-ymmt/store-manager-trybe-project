@@ -9,20 +9,13 @@ const insertSalesProduct = async (element, saleId) => {
 };
 
 const insertSale = async (sales) => {
-  console.log('sale from model before', sales); //
-
   const [result] = await connection.execute(
     'INSERT INTO StoreManager.sales (date) VALUES (NOW())',
   );
 
-  console.log('sale from model after', sales); //
   const saleId = result.insertId;
 
   const salesQueries = sales.map(async (element) => {
-    // console.log('>>>>> saleId', saleId); //
-    // console.log('element', element); //
-    // console.log('element.productId', element.productId); //
-    // console.log('element.quantity', element.quantity); //
     await insertSalesProduct(element, saleId);
   });
 

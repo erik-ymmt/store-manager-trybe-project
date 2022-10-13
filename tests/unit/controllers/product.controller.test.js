@@ -123,4 +123,19 @@ describe("Product controller tests", function () {
       expect(res.json).to.have.been.calledWith(updatedProductMock);
     });
   });
+
+  describe("deleteProduct unit tests", function () {
+    it("Delete product success", async function () {
+      const req = { params: { id: 1 } };
+      const res = { end: () => {} };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon
+        .stub(services.productService, "deleteProduct")
+        .resolves({ affectedRows: 1 });
+      await productsController.deleteProduct(req, res);
+      expect(res.status).to.have.been.calledWith(204);
+    });
+  });
 });

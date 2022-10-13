@@ -1,7 +1,6 @@
 const { salesModel } = require('../models');
 
 const registerSaleService = async (sale) => {
-  console.log('sale from service', sale); //
   const saleId = await salesModel.insertSale(sale);
   return saleId;
 };

@@ -2,7 +2,6 @@ const models = require('../models');
 
 const listAllProducts = async () => {
   const allProducts = await models.productsModel.getAllProducts();
-  // console.log('allProducts: ', allProducts);
   return { error: null, products: allProducts, status: 200 };
 };
 
@@ -30,9 +29,18 @@ const updateProduct = async (product) => {
   return { error: true, message: 'Something went wrong', status: 400 };
 };
 
+const deleteProduct = async (id) => {
+  const result = await models.productsModel.deleteProduct(id);
+    if (result.affectedRows === 1) {
+    return result;
+  }
+  return { error: true, message: 'Something went wrong', status: 400 };
+};
+
 module.exports = {
   listAllProducts,
   listProductById,
   registerProduct,
   updateProduct,
+  deleteProduct,
 };

@@ -6,6 +6,7 @@ const {
   getProductById,
   insertProduct,
   updateProduct,
+  deleteProduct,
 } = require("../../../src/models/products.model");
 const {
   allProductsMock,
@@ -51,6 +52,15 @@ describe("Product model tests", function () {
       const result = await updateProduct({ id: 1, name: "Martelo do Batman" });
       expect(result).to.be.a("object");
       expect(result).to.be.deep.equal(updatedProductQueryMock);
+    });
+  });
+
+  describe("deleteProduct unit tests", function () {
+    it("Delete product success", async function () {
+      sinon.stub(connection, "execute").resolves([{ affectedRows: 1 }]);
+      const result = await deleteProduct(1);
+      expect(result).to.be.a("object");
+      expect(result).to.be.deep.equal({ affectedRows: 1 });
     });
   });
 });

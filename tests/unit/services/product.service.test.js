@@ -6,6 +6,7 @@ const {
   listProductById,
   registerProduct,
   updateProduct,
+  deleteProduct,
 } = require("../../../src/services/products.service");
 const {
   allProductsMock,
@@ -87,6 +88,25 @@ describe("Product services tests", function () {
         .stub(models.productsModel, "updateProduct")
         .resolves({ affectedRows: 0 });
       const result = await updateProduct({ id: 1, name: "Martelo do Batman" });
+      expect(result).to.be.deep.equal({ error: true, message: 'Something went wrong', status: 400 });
+    });
+  });
+
+  describe("deleteProduct unit tests", function () {
+    it("Delete product success", async function () {
+      sinon
+        .stub(models.productsModel, "deleteProduct")
+        .resolves({ affectedRows: 1 });
+      const result = await deleteProduct(1);
+      expect(result).to.be.a("object");
+      expect(result).to.be.deep.equal({ affectedRows: 1 });
+    });
+
+    it("Delete product fail", async function () {
+      sinon
+        .stub(models.productsModel, "deleteProduct")
+        .resolves({ affectedRows: 0 });
+      const result = await deleteProduct(1);
       expect(result).to.be.deep.equal({ error: true, message: 'Something went wrong', status: 400 });
     });
   });
