@@ -29,7 +29,21 @@ const getSales = async () => {
   return camelize(allSales);
 };
 
+const getSaleById = async (id) => {
+  const [sale] = await connection.execute(
+    `SELECT s.date, s_p.product_id, s_p.quantity
+    FROM StoreManager.sales AS s 
+    INNER JOIN StoreManager.sales_products AS s_p
+    ON s.id = s_p.sale_id
+    WHERE s.id = ?`,
+    [id],
+  );
+
+  return camelize(sale);
+};
+
 module.exports = {
   insertSale,
   getSales,
+  getSaleById,
 };

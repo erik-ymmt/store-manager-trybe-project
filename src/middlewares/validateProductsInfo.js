@@ -1,6 +1,5 @@
 const validateProductsInfo = (req, res, next) => {
   const { name } = req.body;
-  console.log('>>>>>> name: ', name);
   if (name === undefined) {
     return res.status(400).json({ message: '"name" is required' });
   }

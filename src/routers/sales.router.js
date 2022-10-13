@@ -8,4 +8,6 @@ router.post('/', validateSalesInfos, salesController.registerSale);
 
 router.get('/', salesController.listAllSales);
 
+router.get('/:id', salesController.listSaleById);
+
 module.exports = router;

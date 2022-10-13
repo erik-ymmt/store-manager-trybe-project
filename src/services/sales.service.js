@@ -10,7 +10,14 @@ const listAllSales = async () => {
   return salesList;
 };
 
+const listSaleById = async (id) => {
+  console.log('service');
+  const sale = await salesModel.getSaleById(id);
+  return sale;
+};
+
 module.exports = {
   registerSale,
   listAllSales,
+  listSaleById,
 };
