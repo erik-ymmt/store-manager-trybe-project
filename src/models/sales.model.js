@@ -1,18 +1,29 @@
 const camelize = require('camelize');
 const connection = require('./connection');
 
-const insertSale = async (sale) => {
+const insertSalesProduct = async (element, saleId) => {
+  await connection.execute(
+    'INSERT INTO StoreManager.sales_products (sale_id, product_id, quantity) VALUES (?, ?, ?)',
+    [saleId, element.productId, element.quantity],
+  );
+};
+
+const insertSale = async (sales) => {
+  console.log('sale from model before', sales); //
+
   const [result] = await connection.execute(
     'INSERT INTO StoreManager.sales (date) VALUES (NOW())',
   );
 
+  console.log('sale from model after', sales); //
   const saleId = result.insertId;
 
-  sale.forEach((element) => {
-    connection.execute(
-      'INSERT INTO StoreManager.sales_products (sale_id, product_id, quantity) VALUES (?, ?, ?)',
-      [saleId, element.productId, element.quantity],
-    );
+  sales.forEach(async (element) => {
+    console.log('>>>>> saleId', saleId); //
+    console.log('element', element); //
+    console.log('element.productId', element.productId); //
+    console.log('element.quantity', element.quantity); //
+    await insertSalesProduct(element, saleId);
   });
 
   return saleId;

@@ -16,7 +16,7 @@ const validateSalesInfos = async (req, res, next) => {
   const validIds = await getValidIds();
 
   sales.forEach((element) => {
-    if (!element.productId) {
+    if (element.productId === undefined) {
       return res.status(400).json({ message: '"productId" is required' });
     }
     if (!validIds.includes(element.productId)) {

@@ -2,15 +2,16 @@ const { salesService } = require('../services');
 
 const registerSale = async (req, res) => {
   const sale = req.body;
-  const id = await salesService.registerSale(sale);
-  res.status(201).json({ id, itemsSold: sale });
+  console.log('sale from controller', sale); //
+  const id = await salesService.registerSaleService(sale);
+  
+  if (!id) return res.status(404).json({ message: 'error' });
+  return res.status(201).json({ id, itemsSold: sale });
 };
 
 const listAllSales = async (_req, res) => {
-  console.log('controller2');
-
   const salesList = await salesService.listAllSales();
-  res.status(200).json(salesList);
+  return res.status(200).json(salesList);
 };
 
 const listSaleById = async (req, res) => {

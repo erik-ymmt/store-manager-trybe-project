@@ -1,6 +1,7 @@
 const { salesModel } = require('../models');
 
-const registerSale = async (sale) => {
+const registerSaleService = async (sale) => {
+  console.log('sale from service', sale); //
   const saleId = await salesModel.insertSale(sale);
   return saleId;
 };
@@ -11,13 +12,12 @@ const listAllSales = async () => {
 };
 
 const listSaleById = async (id) => {
-  console.log('service');
   const sale = await salesModel.getSaleById(id);
   return sale;
 };
 
 module.exports = {
-  registerSale,
+  registerSaleService,
   listAllSales,
   listSaleById,
 };

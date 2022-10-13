@@ -8,7 +8,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-10-11T21:37:19.190Z",
-    "modified": "2022-10-13T00:29:00.666Z",
+    "modified": "2022-10-13T13:16:00.495Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -19,15 +19,15 @@
     "containerId": "",
     "name": "http://localhost:3000/sales",
     "url": "http://localhost:3000/sales",
-    "method": "GET",
+    "method": "POST",
     "sortNum": 0,
     "created": "2022-10-11T21:37:19.190Z",
-    "modified": "2022-10-12T23:31:44.499Z",
+    "modified": "2022-10-13T13:15:58.348Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 0,\n    \"quantity\": 5\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 5\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
       "form": []
     },
     "tests": []
