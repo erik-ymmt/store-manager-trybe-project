@@ -2,6 +2,7 @@ const sinon = require("sinon");
 const services = require("../../../src/services");
 const sinonChai = require("sinon-chai");
 const chai = require("chai");
+
 const { productsController } = require("../../../src/controllers");
 const {
   allProductsFromService,
@@ -10,6 +11,7 @@ const {
   responseProductMock,
   responseProductMockError,
   responseRegisteError,
+  updatedProductMock,
 } = require("./mock/product.controller.mocks");
 
 const { expect } = require("chai");
@@ -67,7 +69,7 @@ describe("Product controller tests", function () {
   });
 
   describe("registerProduct unit tests", function () {
-    it("registe one product success", async function () {
+    it("register one product success", async function () {
       const req = {
         body: {
           name: "productX",
@@ -85,22 +87,40 @@ describe("Product controller tests", function () {
       expect(res.json).to.have.been.calledWith({ id: 3, name: "productX" });
     });
 
-  it("registe one product fail", async function () {
-    const req = {
-      body: {
-        name: "productX",
-      },
-    };
-    const res = {};
+    it("registe one product fail", async function () {
+      const req = {
+        body: {
+          name: "productX",
+        },
+      };
+      const res = {};
 
-    res.status = sinon.stub().returns(res);
-    res.json = sinon.stub().returns();
-    sinon
-      .stub(services.productService, "registerProduct")
-      .resolves(responseRegisteError);
-    await productsController.registerProduct(req, res);
-    expect(res.status).to.have.been.calledWith(400);
-    expect(res.json).to.have.been.calledWith({ message: "Product not registered" });
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon
+        .stub(services.productService, "registerProduct")
+        .resolves(responseRegisteError);
+      await productsController.registerProduct(req, res);
+      expect(res.status).to.have.been.calledWith(400);
+      expect(res.json).to.have.been.calledWith({
+        message: "Product not registered",
+      });
+    });
   });
+
+  describe("updateProduct unit tests", function () {
+    it("Update product success", async function () {
+      const req = { body: { name: "Martelo do Batman" } };
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon
+        .stub(services.productService, "updateProduct")
+        .resolves({ affectedRows: 1 });
+      await productsController.updateProduct(req, res);
+      expect(res.status).to.have.been.calledWith(200);
+      expect(res.json).to.have.been.calledWith(updatedProductMock);
+    });
   });
 });

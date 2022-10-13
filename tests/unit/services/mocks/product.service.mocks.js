@@ -24,8 +24,11 @@ const productByIdMock = {
   name: "Martelo de Thor",
 };
 
+const updatedProductQueryMock = { affectedRows: 1 }
+
 module.exports = {
   allProductsMock,
   allProductsServiceMock,
   productByIdMock,
+  updatedProductQueryMock,
 };

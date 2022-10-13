@@ -20,13 +20,11 @@ const productByIdMock = {
 
 const productRegistredMock = { insertId: 3, affectedRows: 1 };
 
-const updatedProductMock = {
-  name: "Martelo do Batman",
-};
+const updatedProductQueryMock = { affectedRows: 1 }
 
 module.exports = {
   allProductsMock,
   productByIdMock,
   productRegistredMock,
-  updatedProductMock,
+  updatedProductQueryMock,
 };

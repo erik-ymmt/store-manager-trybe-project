@@ -28,6 +28,11 @@ const responseRegisteError = {
   status: 400,
 };
 
+const updatedProductMock = {
+  id: 1,
+  name: "Martelo do Batman",
+};
+
 module.exports = {
   allProductsList,
   allProductsFromService,
@@ -35,4 +40,5 @@ module.exports = {
   responseProductMock,
   responseProductMockError,
   responseRegisteError,
+  updatedProductMock,
 };

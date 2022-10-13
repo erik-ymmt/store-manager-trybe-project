@@ -6,11 +6,11 @@ const {
   listProductById,
   registerProduct,
 } = require("../../../src/services/products.service");
-const { updatedProductMock } = require("../models/mock/product.model.mocks");
 const {
   allProductsMock,
   allProductsServiceMock,
   productByIdMock,
+  updatedProductQueryMock,
 } = require("./mocks/product.service.mocks");
 
 describe("Product services tests", function () {
@@ -71,15 +71,15 @@ describe("Product services tests", function () {
     });
   });
 
-  // describe("updateProduct unit tests", function () {
-  //   it("Update product success", async function () {
-  //     sinon
-  //       .stub(models.productsModel, "updateProduct")
-  //       .resolves([updatedProductMock]);
-  //     const result = await updateProduct(1);
-  //     expect(result).to.be.a("object");
-  //     expect(result).to.be.deep.equal(updatedProductMock);
-  //   });
-  // });
+  describe("updateProduct unit tests", function () {
+    it("Update product success", async function () {
+      sinon
+        .stub(models.productsModel, "updateProduct")
+        .resolves(updatedProductQueryMock);
+      const result = await updateProduct(1);
+      expect(result).to.be.a("object");
+      expect(result).to.be.deep.equal(updatedProductQueryMock);
+    });
+  });
 
 });
