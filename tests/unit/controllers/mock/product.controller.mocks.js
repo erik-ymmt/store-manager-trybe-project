@@ -12,7 +12,27 @@ const allProductsFromService = {
   products: allProductsList,
 };
 
+const productMock = { id: 1, name: "Martelo de Thor" };
+
+const responseProductMock = { error: null, product: productMock, status: 200 };
+
+const responseProductMockError = {
+  error: true,
+  product: "Product not found",
+  status: 404,
+};
+
+const responseRegisteError = {
+  error: true,
+  message: "Product not registered",
+  status: 400,
+};
+
 module.exports = {
   allProductsList,
   allProductsFromService,
+  productMock,
+  responseProductMock,
+  responseProductMockError,
+  responseRegisteError,
 };

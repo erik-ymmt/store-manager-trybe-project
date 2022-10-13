@@ -22,7 +22,6 @@ const insertProduct = async (name) => {
     'INSERT INTO StoreManager.products (name) VALUES (?)',
     [name],
   );
-  console.log(result);
   return { id: result.insertId, affectedRows: result.affectedRows };
 };
 
