@@ -16,7 +16,8 @@ const validateProductsInfo = (req, res, next) => {
 const validadeDeleteId = async (req, res, next) => {
   const { id } = req.params;
   const validIds = await getValidIds();
-  if (validIds.includes(id)) {
+
+  if (!validIds.includes(Number(id))) {
     return res.status(404).json({ message: 'Product not found' });
   }
   return next();
