@@ -5,6 +5,7 @@ const {
   getAllProducts,
   getProductById,
   insertProduct,
+  updateProduct,
 } = require("../../../src/models/products.model");
 const {
   allProductsMock,
@@ -47,7 +48,7 @@ describe("Product model tests", function () {
   describe("updateProduct unit tests", function () {
     it("Update product success", async function () {
       sinon.stub(connection, "execute").resolves([updatedProductQueryMock]);
-      const result = await updateProduct(1);
+      const result = await updateProduct({ id: 1, name: "Martelo do Batman" });
       expect(result).to.be.a("object");
       expect(result).to.be.deep.equal(updatedProductQueryMock);
     });

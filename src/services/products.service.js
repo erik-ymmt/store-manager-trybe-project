@@ -22,8 +22,17 @@ const registerProduct = async (product) => {
     return { error: true, message: 'Product not registered', status: 400 };
 };
 
+const updateProduct = async (product) => {
+  const result = await models.productsModel.updateProduct(product);
+    if (result.affectedRows === 1) {
+    return result;
+  }
+  return { error: true, message: 'Something went wrong', status: 400 };
+};
+
 module.exports = {
   listAllProducts,
   listProductById,
   registerProduct,
+  updateProduct,
 };

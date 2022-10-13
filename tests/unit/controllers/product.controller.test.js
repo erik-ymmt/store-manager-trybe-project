@@ -110,7 +110,7 @@ describe("Product controller tests", function () {
 
   describe("updateProduct unit tests", function () {
     it("Update product success", async function () {
-      const req = { body: { name: "Martelo do Batman" } };
+      const req = { body: { name: "Martelo do Batman" }, params: { id: 1 } };
       const res = {};
 
       res.status = sinon.stub().returns(res);

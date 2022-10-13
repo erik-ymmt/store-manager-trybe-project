@@ -5,6 +5,7 @@ const {
   listAllProducts,
   listProductById,
   registerProduct,
+  updateProduct,
 } = require("../../../src/services/products.service");
 const {
   allProductsMock,
@@ -76,9 +77,17 @@ describe("Product services tests", function () {
       sinon
         .stub(models.productsModel, "updateProduct")
         .resolves(updatedProductQueryMock);
-      const result = await updateProduct(1);
+      const result = await updateProduct({ id: 1, name: "Martelo do Batman" });
       expect(result).to.be.a("object");
       expect(result).to.be.deep.equal(updatedProductQueryMock);
+    });
+
+    it("Update product fail", async function () {
+      sinon
+        .stub(models.productsModel, "updateProduct")
+        .resolves({ affectedRows: 0 });
+      const result = await updateProduct({ id: 1, name: "Martelo do Batman" });
+      expect(result).to.be.deep.equal({ error: true, message: 'Something went wrong', status: 400 });
     });
   });
 

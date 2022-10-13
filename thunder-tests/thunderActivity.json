@@ -61,6 +61,25 @@
     "tests": []
   },
   {
+    "_id": "f1200822-ed58-4a95-a415-bc6d6b4df3d5",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/1 Copy",
+    "url": "http://localhost:3000/products/1",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-10-11T22:11:10.139Z",
+    "modified": "2022-10-13T22:19:53.116Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelinho do batman\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
     "_id": "2cc780c8-8c0d-4912-8e3e-12a256bb73e2",
     "colId": "history",
     "containerId": "",
@@ -83,7 +102,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-10-11T23:52:19.098Z",
-    "modified": "2022-10-13T00:28:10.371Z",
+    "modified": "2022-10-13T22:20:00.466Z",
     "headers": [],
     "params": [],
     "tests": []
