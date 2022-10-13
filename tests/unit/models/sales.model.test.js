@@ -14,7 +14,7 @@ const {
   saleReqMock,
 } = require("./mock/sales.model.mock");
 
-describe.only("Sales model tests", function () {
+describe("Sales model tests", function () {
   afterEach(sinon.restore);
   describe("getSales unit test", function () {
     it("list all sales", async function () {
