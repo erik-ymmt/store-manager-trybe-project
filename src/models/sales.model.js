@@ -23,6 +23,7 @@ const insertSale = async (sales) => {
     console.log('element', element); //
     console.log('element.productId', element.productId); //
     console.log('element.quantity', element.quantity); //
+
     await insertSalesProduct(element, saleId);
   });
 

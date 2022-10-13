@@ -6,6 +6,7 @@ const {
   listProductById,
   registerProduct,
 } = require("../../../src/services/products.service");
+const { updatedProductMock } = require("../models/mock/product.model.mocks");
 const {
   allProductsMock,
   allProductsServiceMock,
@@ -68,6 +69,17 @@ describe("Product services tests", function () {
       const result = await registerProduct({ name: "productX" });
       expect(result).to.be.deep.equal({ error: true, message: 'Product not registered', status: 400 });
     });
-
   });
+
+  describe("updateProduct unit tests", function () {
+    it("Update product success", async function () {
+      sinon
+        .stub(models.productsModel, "updateProduct")
+        .resolves([updatedProductMock]);
+      const result = await updateProduct(1);
+      expect(result).to.be.a("object");
+      expect(result).to.be.deep.equal(updatedProductMock);
+    });
+  });
+
 });
