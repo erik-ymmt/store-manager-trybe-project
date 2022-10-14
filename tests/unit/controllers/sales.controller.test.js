@@ -9,6 +9,8 @@ const {
   saleRegisteredMock,
   saleBodyReq,
   deleteSaleResponseMock,
+  updatedSaleMock,
+  updateSaleBodyMock,
 } = require("./mock/sales.controller.mock");
 const services = require("../../../src/services");
 
@@ -100,6 +102,22 @@ describe("Sales controller tests", function () {
         .resolves(deleteSaleResponseMock);
       await salesController.deleteSale(req, res);
       expect(res.status).to.have.been.calledWith(204);
+    });
+  });
+
+  describe("updateSale unit tests", function () {
+    it("update sales success", async function () {
+      const req = { params: { id: "1" }, body: updateSaleBodyMock };
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon
+        .stub(services.salesService, "updateSale")
+        .resolves({ error: null, status: 200 });
+      await salesController.updateSale(req, res);
+      expect(res.status).to.have.been.calledWith(200);
+      expect(res.json).to.have.been.calledWith(updatedSaleMock);
     });
   });
 });

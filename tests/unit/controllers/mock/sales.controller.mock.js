@@ -53,10 +53,28 @@ const deleteSaleResponseMock = {
   status: 204,
 };
 
+const updateSaleBodyMock = [
+  {
+    productId: 1,
+    quantity: 10,
+  },
+  {
+    productId: 2,
+    quantity: 50,
+  },
+];
+
+const updatedSaleMock = {
+  saleId: 1,
+  itemsUpdated: updateSaleBodyMock,
+};
+
 module.exports = {
   allSalesMockCamelized,
   saleMockCamelized,
   saleBodyReq,
   saleRegisteredMock,
   deleteSaleResponseMock,
+  updatedSaleMock,
+  updateSaleBodyMock,
 };

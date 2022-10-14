@@ -8,7 +8,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-10-11T21:37:19.190Z",
-    "modified": "2022-10-14T19:12:38.910Z",
+    "modified": "2022-10-14T22:05:43.704Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -58,6 +58,25 @@
     "modified": "2022-10-14T19:12:52.291Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "5da7fc86-68fe-465d-bea3-4f26ae3a54a3",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/sales/:id Copy",
+    "url": "http://localhost:3000/sales/20",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-10-11T21:37:19.190Z",
+    "modified": "2022-10-14T22:15:32.065Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 3\n  }\n]",
+      "form": []
+    },
     "tests": []
   },
   {

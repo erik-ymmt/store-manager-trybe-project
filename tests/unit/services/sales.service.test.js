@@ -6,12 +6,14 @@ const {
   listSaleById,
   registerSaleService,
   deleteSale,
+  updateSale,
 } = require("../../../src/services/sales.service");
 const {
   allSalesMockCamelized,
   saleMockCamelized,
   saleReqMock,
   deleteSalesResultMock,
+  updatedSaleMock,
 } = require("./mocks/sales.service.mocks");
 
 describe("Sales services tests", function () {
@@ -45,9 +47,22 @@ describe("Sales services tests", function () {
 
   describe("deleteSale unit tests", function () {
     it("Delete sale success", async function () {
-      sinon.stub(models.salesModel, "deleteSale").resolves(deleteSalesResultMock);
+      sinon
+        .stub(models.salesModel, "deleteSale")
+        .resolves(deleteSalesResultMock);
       const result = await deleteSale(1);
-      expect(result).to.be.deep.equal({ ...deleteSalesResultMock, status: 204 });
+      expect(result).to.be.deep.equal({
+        ...deleteSalesResultMock,
+        status: 204,
+      });
+    });
+  });
+
+  describe("updateSale unit tests", function () {
+    it("Update sale success", async function () {
+      sinon.stub(models.salesModel, "updateSale").resolves({ message: 'success' });
+      const result = await updateSale(updatedSaleMock);
+      expect(result).to.be.deep.equal({ error: null, status: 200 });
     });
   });
 });

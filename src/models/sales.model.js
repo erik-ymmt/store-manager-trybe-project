@@ -65,9 +65,29 @@ const deleteSale = async (id) => {
   };
 };
 
+const updateSale = async (sale) => {
+  const { saleId } = sale;
+  const items = sale.itemsUpdated;
+
+  const updateItems = items.map(async (item) => {
+    await connection.execute(
+      `UPDATE StoreManager.sales_products
+        SET quantity=?
+        WHERE sale_id=?
+        AND product_id=?`,
+      [item.quantity, saleId, item.productId],
+    );
+  });
+
+  await Promise.all(updateItems);
+
+  return { message: 'success' };
+};
+
 module.exports = {
   insertSale,
   getSales,
   getSaleById,
   deleteSale,
+  updateSale,
 };

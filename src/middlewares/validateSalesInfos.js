@@ -42,9 +42,6 @@ const validateSaleId = async (req, res, next) => {
   const saleId = Number(req.params.id);
   const validSalesIds = await getValidSalesIds();
 
-  console.log('saleId>>', saleId);
-  console.log('validSalesIds>>', validSalesIds);
-
   if (validSalesIds.includes(saleId)) {
     return next();
   }

@@ -6,6 +6,7 @@ const {
   getSaleById,
   insertSale,
   deleteSale,
+  updateSale,
 } = require("../../../src/models/sales.model");
 const {
   allSalesMock,
@@ -13,6 +14,8 @@ const {
   saleMock,
   saleMockCamelized,
   saleReqMock,
+  updateSales,
+  updatedSaleMock,
 } = require("./mock/sales.model.mock");
 
 describe("Sales model tests", function () {
@@ -61,6 +64,16 @@ describe("Sales model tests", function () {
         affectedRowsSalesProducts: 2,
         affectedRowsSales: 1,
       });
+    });
+  });
+
+  describe("updateSale unit test", function () {
+    it("update sale", async function () {
+      sinon.stub(connection, "execute").onFirstCall().resolves();
+
+      const result = await updateSale(updatedSaleMock);
+
+      expect(result).to.deep.equal({ message: "success" });
     });
   });
 });

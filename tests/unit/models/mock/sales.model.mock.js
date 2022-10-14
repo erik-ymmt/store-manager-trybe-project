@@ -48,14 +48,28 @@ const saleMockCamelized = [
 
 const saleReqMock = [
   {
-    "productId": 1,
-    "quantity": 1
+    productId: 1,
+    quantity: 1,
   },
   {
-    "productId": 2,
-    "quantity": 5
-  }
-]
+    productId: 2,
+    quantity: 5,
+  },
+];
+
+const updatedSaleMock = {
+  saleId: 1,
+  itemsUpdated: [
+    {
+      productId: 1,
+      quantity: 10,
+    },
+    {
+      productId: 2,
+      quantity: 50,
+    },
+  ],
+};
 
 module.exports = {
   allSalesMock,
@@ -63,4 +77,5 @@ module.exports = {
   saleMock,
   saleMockCamelized,
   saleReqMock,
+  updatedSaleMock,
 };

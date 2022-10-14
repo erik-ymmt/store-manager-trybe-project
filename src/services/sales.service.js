@@ -20,9 +20,16 @@ const deleteSale = async (id) => {
   return { ...result, status: 204 };
 };
 
+const updateSale = async (sale) => {
+  console.log('controller update');
+  await salesModel.updateSale(sale);
+  return { error: null, status: 200 };
+};
+
 module.exports = {
   registerSaleService,
   listAllSales,
   listSaleById,
   deleteSale,
+  updateSale,
 };
