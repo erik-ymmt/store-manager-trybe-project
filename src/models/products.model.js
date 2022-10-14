@@ -1,4 +1,3 @@
-// const camelize = require('camelize');
 const connection = require('./connection');
 
 const getAllProducts = async () => {
@@ -43,10 +42,21 @@ const deleteProduct = async (id) => {
   return { affectedRows };
 };
 
+const searchProduct = async (search) => {
+  const [result] = await connection.execute(
+    `SELECT * FROM StoreManager.products
+    WHERE name LIKE ?`,
+    [`%${search}%`],
+  );
+
+  return result;
+};
+
 module.exports = {
   getAllProducts,
   getProductById,
   insertProduct,
   updateProduct,
   deleteProduct,
+  searchProduct,
 };

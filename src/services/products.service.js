@@ -37,10 +37,16 @@ const deleteProduct = async (id) => {
   return { error: true, message: 'Something went wrong', status: 400 };
 };
 
+const searchProduct = async (search) => {
+  const searchResults = await models.productsModel.searchProduct(search);
+  return searchResults;
+};
+
 module.exports = {
   listAllProducts,
   listProductById,
   registerProduct,
   updateProduct,
   deleteProduct,
+  searchProduct,
 };

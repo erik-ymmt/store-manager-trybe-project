@@ -5,6 +5,8 @@ const { validateUpdateProductInfo } = require('../middlewares/validateUpdateProd
 
 const router = express.Router();
 
+router.get('/search', productsController.searchProduct);
+
 router.get('/', productsController.listProducts);
 
 router.get('/:id', productsController.listProductById);
