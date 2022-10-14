@@ -47,9 +47,16 @@ const saleRegisteredMock = {
   ],
 };
 
+const deleteSaleResponseMock = {
+  affectedRowsSalesProducts: 2,
+  affectedRowsSales: 1,
+  status: 204,
+};
+
 module.exports = {
   allSalesMockCamelized,
   saleMockCamelized,
   saleBodyReq,
   saleRegisteredMock,
+  deleteSaleResponseMock,
 };

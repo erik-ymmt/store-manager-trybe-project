@@ -5,6 +5,7 @@ const {
   getSales,
   getSaleById,
   insertSale,
+  deleteSale,
 } = require("../../../src/models/sales.model");
 const {
   allSalesMock,
@@ -36,10 +37,30 @@ describe("Sales model tests", function () {
     it("insert sale with one product", async function () {
       sinon
         .stub(connection, "execute")
-        .onFirstCall().resolves([{insertId: 2}])
-        .onSecondCall().resolves();
+        .onFirstCall()
+        .resolves([{ insertId: 2 }])
+        .onSecondCall()
+        .resolves();
       const result = await insertSale(saleReqMock);
       expect(result).to.equal(2);
+    });
+  });
+
+  describe("deleteSale unit test", function () {
+    it("delete sale", async function () {
+      sinon
+        .stub(connection, "execute")
+        .onFirstCall()
+        .resolves([{ affectedRows: 2 }])
+        .onSecondCall()
+        .resolves([{ affectedRows: 1 }]);
+
+      const result = await deleteSale(3);
+
+      expect(result).to.deep.equal({
+        affectedRowsSalesProducts: 2,
+        affectedRowsSales: 1,
+      });
     });
   });
 });

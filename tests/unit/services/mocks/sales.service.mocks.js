@@ -24,17 +24,23 @@ const saleMockCamelized = [
 
 const saleReqMock = [
   {
-    "productId": 1,
-    "quantity": 1
+    productId: 1,
+    quantity: 1,
   },
   {
-    "productId": 2,
-    "quantity": 5
-  }
-]
+    productId: 2,
+    quantity: 5,
+  },
+];
+
+const deleteSalesResultMock = {
+  affectedRowsSalesProducts: 2,
+  affectedRowsSales: 1,
+};
 
 module.exports = {
   allSalesMockCamelized,
   saleMockCamelized,
   saleReqMock,
-}
+  deleteSalesResultMock,
+};

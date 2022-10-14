@@ -1,6 +1,7 @@
 const { getValidIds } = require('../helpers/getValidProductsIds');
+const { getValidSalesIds } = require('../helpers/getValidSalesId');
 
-const validateSalesIds = async (req, res, next) => {
+const validateSalesProductIds = async (req, res, next) => {
   const sales = req.body;
   const validIds = await getValidIds();
   const salesIds = sales.map((sale) => sale.productId);
@@ -37,7 +38,22 @@ const validateSalesQuantities = (req, res, next) => {
   return next();
 };
 
+const validateSaleId = async (req, res, next) => {
+  const saleId = Number(req.params.id);
+  const validSalesIds = await getValidSalesIds();
+
+  console.log('saleId>>', saleId);
+  console.log('validSalesIds>>', validSalesIds);
+
+  if (validSalesIds.includes(saleId)) {
+    return next();
+  }
+
+  return res.status(404).json({ message: 'Sale not found' });
+};
+
 module.exports = {
-  validateSalesIds,
+  validateSalesProductIds,
   validateSalesQuantities,
+  validateSaleId,
 };

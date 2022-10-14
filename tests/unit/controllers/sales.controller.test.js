@@ -8,6 +8,7 @@ const {
   saleMockCamelized,
   saleRegisteredMock,
   saleBodyReq,
+  deleteSaleResponseMock,
 } = require("./mock/sales.controller.mock");
 const services = require("../../../src/services");
 
@@ -35,7 +36,7 @@ describe("Sales controller tests", function () {
 
   describe("listSaleById unit tests", function () {
     it("Lists sale by id success", async function () {
-      const req = { params: { id: 1 } };
+      const req = { params: { id: "1" } };
       const res = {};
 
       res.status = sinon.stub().returns(res);
@@ -49,7 +50,7 @@ describe("Sales controller tests", function () {
     });
 
     it("Lists sale by id fail", async function () {
-      const req = { params: { id: 1 } };
+      const req = { params: { id: "1" } };
       const res = {};
 
       res.status = sinon.stub().returns(res);
@@ -83,7 +84,22 @@ describe("Sales controller tests", function () {
       sinon.stub(services.salesService, "registerSaleService").resolves(null);
       await salesController.registerSale(req, res);
       expect(res.status).to.have.been.calledWith(404);
-      expect(res.json).to.have.been.calledWith({ message: 'error' });
+      expect(res.json).to.have.been.calledWith({ message: "error" });
+    });
+  });
+
+  describe("registerSale unit tests", function () {
+    it("delete sales success", async function () {
+      const req = { params: { id: "3" } };
+      const res = { end: () => {} };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon
+        .stub(services.salesService, "deleteSale")
+        .resolves(deleteSaleResponseMock);
+      await salesController.deleteSale(req, res);
+      expect(res.status).to.have.been.calledWith(204);
     });
   });
 });

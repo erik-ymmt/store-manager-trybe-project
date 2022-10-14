@@ -8,7 +8,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-10-11T21:37:19.190Z",
-    "modified": "2022-10-13T21:11:46.958Z",
+    "modified": "2022-10-14T19:12:38.910Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -22,12 +22,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-10-11T21:37:19.190Z",
-    "modified": "2022-10-13T21:11:44.064Z",
+    "modified": "2022-10-14T19:12:36.322Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 100\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 500\n  }\n]",
       "form": []
     },
     "tests": []
@@ -42,6 +42,20 @@
     "sortNum": 0,
     "created": "2022-10-11T21:37:19.190Z",
     "modified": "2022-10-13T00:33:07.916Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "9d4c77f8-641e-44e1-9168-e14134121573",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/sales/:id Copy",
+    "url": "http://localhost:3000/sales/5",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2022-10-11T21:37:19.190Z",
+    "modified": "2022-10-14T19:12:52.291Z",
     "headers": [],
     "params": [],
     "tests": []

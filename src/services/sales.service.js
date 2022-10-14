@@ -15,8 +15,14 @@ const listSaleById = async (id) => {
   return sale;
 };
 
+const deleteSale = async (id) => {
+  const result = await salesModel.deleteSale(id);
+  return { ...result, status: 204 };
+};
+
 module.exports = {
   registerSaleService,
   listAllSales,
   listSaleById,
+  deleteSale,
 };
