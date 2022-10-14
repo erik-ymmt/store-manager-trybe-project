@@ -138,4 +138,23 @@ describe("Product controller tests", function () {
       expect(res.status).to.have.been.calledWith(204);
     });
   });
+
+  describe("searchProduct unit tests", function () {
+    it("Delete product success", async function () {
+      const req = { query: { q: 'escudo' } };
+      const res = { };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon
+        .stub(services.productService, "searchProduct")
+        .resolves([
+        {
+          id: 3,
+          name: "Escudo do Capitão América",
+        }]);
+      await productsController.searchProduct(req, res);
+      expect(res.status).to.have.been.calledWith(200);
+    });
+  });
 });

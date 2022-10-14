@@ -7,6 +7,7 @@ const {
   insertProduct,
   updateProduct,
   deleteProduct,
+  searchProduct,
 } = require("../../../src/models/products.model");
 const {
   allProductsMock,
@@ -61,6 +62,21 @@ describe("Product model tests", function () {
       const result = await deleteProduct(1);
       expect(result).to.be.a("object");
       expect(result).to.be.deep.equal({ affectedRows: 1 });
+    });
+  });
+
+  describe("searchProduct unit tests", function () {
+    it("Search product success", async function () {
+      sinon.stub(connection, "execute").resolves([[{
+          id: 3,
+          name: "Escudo do Capitão América",
+        }]]);
+      const result = await searchProduct(1);
+      expect(result).to.be.a("array");
+      expect(result).to.be.deep.equal([{
+          id: 3,
+          name: "Escudo do Capitão América",
+        }]);
     });
   });
 });

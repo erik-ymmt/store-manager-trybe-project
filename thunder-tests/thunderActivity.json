@@ -177,12 +177,12 @@
     "_id": "b744f5dd-3b03-45a5-b60b-7cc815f0d71b",
     "colId": "history",
     "containerId": "",
-    "name": "http://localhost:3000/products/ Copy",
+    "name": "http://localhost:3000/products/search",
     "url": "http://localhost:3000/products/search?q=escudo",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-10-12T00:22:40.734Z",
-    "modified": "2022-10-14T22:52:30.322Z",
+    "modified": "2022-10-14T22:59:51.364Z",
     "headers": [],
     "params": [
       {

@@ -7,6 +7,7 @@ const {
   registerProduct,
   updateProduct,
   deleteProduct,
+  searchProduct,
 } = require("../../../src/services/products.service");
 const {
   allProductsMock,
@@ -69,7 +70,11 @@ describe("Product services tests", function () {
         .stub(models.productsModel, "insertProduct")
         .resolves({ id: 3, affectedRows: 0 });
       const result = await registerProduct({ name: "productX" });
-      expect(result).to.be.deep.equal({ error: true, message: 'Product not registered', status: 400 });
+      expect(result).to.be.deep.equal({
+        error: true,
+        message: "Product not registered",
+        status: 400,
+      });
     });
   });
 
@@ -88,7 +93,11 @@ describe("Product services tests", function () {
         .stub(models.productsModel, "updateProduct")
         .resolves({ affectedRows: 0 });
       const result = await updateProduct({ id: 1, name: "Martelo do Batman" });
-      expect(result).to.be.deep.equal({ error: true, message: 'Something went wrong', status: 400 });
+      expect(result).to.be.deep.equal({
+        error: true,
+        message: "Something went wrong",
+        status: 400,
+      });
     });
   });
 
@@ -107,8 +116,29 @@ describe("Product services tests", function () {
         .stub(models.productsModel, "deleteProduct")
         .resolves({ affectedRows: 0 });
       const result = await deleteProduct(1);
-      expect(result).to.be.deep.equal({ error: true, message: 'Something went wrong', status: 400 });
+      expect(result).to.be.deep.equal({
+        error: true,
+        message: "Something went wrong",
+        status: 400,
+      });
     });
   });
 
+  describe("searchProduct unit tests", function () {
+    it("Search product", async function () {
+      sinon
+        .stub(models.productsModel, "searchProduct")
+        .resolves([
+        {
+          id: 3,
+          name: "Escudo do Capitão América",
+        }]);
+      const result = await searchProduct("escudo");
+      expect(result).to.be.deep.equal([
+        {
+          id: 3,
+          name: "Escudo do Capitão América",
+        }]);
+    });
+  });
 });
