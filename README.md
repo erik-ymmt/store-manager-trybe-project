@@ -4,9 +4,11 @@
 &nbsp;&nbsp; This project developed a RESTful CRUD API with the Models, Services, and Controller(MSC) architecture. The API controls an online store database created with MySQL. All application is covered with unit tests. The concept of the project was made by [Trybe](https://www.betrybe.com/).
 	
 ## Files:
+&nbsp;&nbsp; Trybe's teams previously developed all project setup and some files such as migration.sql and seed.sql.
+</br>
+</br>
 &nbsp;&nbsp; Files developed by me:
 - everything on the /src and /test folders.
-- Trybe's teams previously developed some files such as migration.sql and seed.sql.
 
 ## Technologies:
 Technologies applied by me on this project:
